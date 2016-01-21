@@ -4,12 +4,17 @@
   "description": "Learning project from Web Development with Node and Express",
   "main": "meadowlark.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "mocha": "mocha"
   },
   "author": "captmike",
   "license": "ISC",
   "dependencies": {
     "express": "^4.13.3",
     "express-handlebars": "^2.0.1"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4",
+    "nightmare": "^2.1.3"
   }
 }

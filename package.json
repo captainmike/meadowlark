@@ -4,7 +4,7 @@
   "description": "Learning project from Web Development with Node and Express",
   "main": "meadowlark.js",
   "scripts": {
-    "mocha": "mocha"
+    "mocha": "mocha --harmony"
   },
   "author": "captmike",
   "license": "ISC",

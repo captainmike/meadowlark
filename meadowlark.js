@@ -1,6 +1,6 @@
 var express = require('express');
 var app = module.exports = express();
-var fortune = require('./lib/fortune.js')
+var fortune = require('./lib/fortune.js');
 
 // set up handlebars view engine
 var handlebars = require('express-handlebars')
@@ -9,11 +9,11 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
 app.set('port', process.env.PORT || 3000);
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res) {
   res.render('home');
-})
+});
 
 app.get('/tours/hood-river', function(req, res) {
   res.render('tours/hood-river');
@@ -29,7 +29,7 @@ app.get('/tours/request-group-rate', function(req, res) {
 
 app.get('/about', function(req, res) {
   res.render('about', { fortune: fortune.getFortune() });
-})
+});
 
 // custom 404 page
 app.use(function(req, res) {

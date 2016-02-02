@@ -3,7 +3,7 @@ require('mocha-generators').install();
 var Nightmare = require('nightmare');
 var url = require('url');
 var expect = require('chai').expect;
-var server = require('../meadowlark.js');
+var server = require('../../meadowlark.js');
 
 var base = 'http://localhost:7500';
 

@@ -19,6 +19,10 @@ app.get('/tours/hood-river', function(req, res) {
   res.render('tours/hood-river');
 });
 
+app.get('/tours/oregon-coast', function(req, res) {
+  res.render('tours/hood-river');
+});
+
 app.get('/tours/request-group-rate', function(req, res) {
   res.render('tours/request-group-rate');
 });
@@ -40,9 +44,10 @@ app.use(function(err, req, res, next) {
   res.render('500');
 });
 
-app.listen(app.get('port'), function() {
-  console.log( 'Express started on http://localhost:' +
-              app.get('port') + '; press Ctrl-C to terminate.' );
-});
 
-app;
+if (!module.parent) {
+  app.listen(app.get('port'), function() {
+    console.log( 'Express started on http://localhost:' +
+                app.get('port') + '; press Ctrl-C to terminate.' );
+  });
+}

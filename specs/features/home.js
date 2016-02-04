@@ -3,15 +3,20 @@ require('mocha-generators').install();
 var Nightmare = require('nightmare');
 var url = require('url');
 var expect = require('chai').expect;
-var server = require('../../meadowlark.js');
-
 var base = 'http://localhost:7500';
 
-before((done) => {
-  server.listen(7500, done);
-});
-
 describe('/', () => {
+  var app = require('../../meadowlark.js');
+  var server;
+
+  before((done) => {
+    server = app.listen(7500, done);
+  });
+
+  after(function () {
+    server.close();
+  });
+
   var nightmare;
 
   beforeEach(() => {

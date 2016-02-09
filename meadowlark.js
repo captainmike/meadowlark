@@ -4,9 +4,8 @@ var fortune = require('./lib/fortune.js');
 
 // set up handlebars view engine
 var handlebars = require('express-handlebars')
-.create({ defaultLayout:'main' });
-app.engine('handlebars', handlebars.engine);
-app.set('view engine', 'handlebars');
+app.engine('.hbs', handlebars({extname: '.hbs', defaultLayout: 'main'}));
+app.set('view engine', '.hbs');
 
 app.set('port', process.env.PORT || 3000);
 app.use(express.static(__dirname + '/public'));

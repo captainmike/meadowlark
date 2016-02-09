@@ -2,7 +2,12 @@ require('mocha-generators').install();
 
 var Nightmare = require('nightmare');
 var url = require('url');
-var expect = require('chai').expect;
+var chai = require('chai');
+var dirtyChai = require('dirty-chai');
+var expect = chai.expect;
+
+chai.use(dirtyChai);
+
 var base = 'http://localhost:7500';
 
 describe('/', () => {
@@ -20,13 +25,11 @@ describe('/', () => {
   var nightmare;
 
   beforeEach(() => {
-    nightmare = Nightmare()
+    nightmare = Nightmare();
 
     Nightmare.action('body', function (done) {
-      this.evaluate_now(function() {
-        return document.body.innerHTML;
-      }, done)
-    })
+      this.evaluate_now(() => document.body.innerHTML, done);
+    });
   });
 
   afterEach(function*() {
@@ -44,7 +47,7 @@ describe('/', () => {
       .goto(build_url('/'))
       .exists('h1');
 
-    expect(titleTag).to.be.true;
+    expect(titleTag).to.be.true();
 
     var bodyText = yield nightmare
       .goto(build_url('/'))

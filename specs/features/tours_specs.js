@@ -20,7 +20,7 @@ describe('/tours/request-group-rate', () => {
   var nightmare;
 
   beforeEach(() => {
-    nightmare = Nightmare()
+    nightmare = Nightmare();
   });
 
   afterEach(function*() {

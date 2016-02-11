@@ -5,7 +5,21 @@ var weatherService = require('./lib/weather_service.js');
 
 // set up handlebars view engine
 var handlebars = require('express-handlebars')
-app.engine('.hbs', handlebars({extname: '.hbs', defaultLayout: 'main'}));
+app.engine('.hbs', handlebars({
+  extname: '.hbs',
+  defaultLayout: 'main',
+  helpers: {
+    section: (name, options) => {
+      if (!this._sections) this._sections = {};
+
+      if (options.fn) {
+        this._sections[name] = options.fn(this);
+      } else {
+        return this._sections[name];
+      }
+    }
+  }
+}));
 app.set('view engine', '.hbs');
 
 app.set('port', process.env.PORT || 3000);

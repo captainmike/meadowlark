@@ -1,6 +1,7 @@
 var express = require('express');
 var app = module.exports = express();
 var fortune = require('./lib/fortune.js');
+var weatherService = require('./lib/weather_service.js');
 
 // set up handlebars view engine
 var handlebars = require('express-handlebars')
@@ -9,6 +10,12 @@ app.set('view engine', '.hbs');
 
 app.set('port', process.env.PORT || 3000);
 app.use(express.static(__dirname + '/public'));
+
+app.use((req, res, next) => {
+  if (!res.locals.widget) res.locals.widget = {};
+  res.locals.widget.weather = weatherService.getWeatherData();
+  next();
+});
 
 app.get('/', function(req, res) {
   res.render('home');

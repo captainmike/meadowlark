@@ -9,11 +9,15 @@
   "author": "captmike",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^3.3.6",
     "express": "^4.13.3",
     "express-handlebars": "^2.0.1",
-    "grunt-mocha-cli": "^2.0.0"
+    "grunt-mocha-cli": "^2.0.0",
+    "jquery": "^2.2.0"
   },
   "devDependencies": {
+    "browserify": "^13.0.0",
+    "browserify-css": "^0.9.0",
     "chai": "^3.5.0",
     "dirty-chai": "^1.2.2",
     "grunt": "^0.4.5",

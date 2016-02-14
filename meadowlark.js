@@ -1,3 +1,5 @@
+'use strict';
+
 var express = require('express');
 var app = module.exports = express();
 var fortune = require('./lib/fortune.js');
@@ -11,11 +13,14 @@ app.engine('.hbs', handlebars({
   helpers: {
     section: (name, options) => {
       if (!this._sections) this._sections = {};
+      if (!this._sections[name]) this._sections[name] = [];
 
       if (options.fn) {
-        this._sections[name] = options.fn(this);
+        this._sections[name].push(options.fn(this));
       } else {
-        return this._sections[name];
+        let text = this._sections[name].join("\n");
+        this._sections[name] = [];
+        return text;
       }
     }
   }

@@ -1,21 +1,27 @@
 module.exports = function(grunt){
-  // load plugins
-  [
-    'grunt-mocha-cli',
-    'grunt-contrib-jshint',
-  ].forEach(function(task){
-    grunt.loadNpmTasks(task);
-  });
+  require('load-grunt-tasks')(grunt);
 
   // configure plugins
   grunt.initConfig({
+    sass: {
+      options: {
+        sourceMap: true,
+        outputStyle: 'expanded',
+        includePaths: ['node_modules/bootstrap/scss']
+      },
+      dist: {
+        files: {
+          'public/app.css': 'assets/stylesheets/main.scss'
+        }
+      }
+    },
     mochacli: {
       all: ['specs/**/*_specs.js']
     },
     jshint: {
+      options: {esversion: 6},
       app: ['lib/**/*.js'],
-      tests: ['specs/**/*_specs.js'],
-      options: {esversion: 6}
+      tests: ['specs/**/*_specs.js']
     }
   });
 

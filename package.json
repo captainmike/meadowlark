@@ -9,7 +9,7 @@
   "author": "captmike",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^3.3.6",
+    "bootstrap": "^4.0.0-alpha.2",
     "express": "^4.13.3",
     "express-handlebars": "^2.0.1",
     "grunt-mocha-cli": "^2.0.0",
@@ -22,7 +22,9 @@
     "grunt": "^0.4.5",
     "grunt-contrib-jshint": "^0.12.0",
     "grunt-mocha-cli": "^2.0.0",
+    "grunt-sass": "^1.1.0",
     "jshint": "^2.9.1",
+    "load-grunt-tasks": "^3.4.0",
     "mocha": "^2.3.4",
     "mocha-generators": "^1.2.0",
     "nightmare": "^2.1.3"

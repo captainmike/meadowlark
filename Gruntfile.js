@@ -19,6 +19,31 @@ module.exports = function(grunt){
       }
     },
 
+    browserify: {
+      dev: {
+        files: {
+          'public/app.js': ['assets/javascripts/**/*.js']
+        }
+      },
+
+      dist: {
+        files: {
+          'tmp/app.js': ['assets/javascripts/**/*.js']
+        }
+      }
+    },
+
+    uglify: {
+      dist: {
+        options: {
+          sourceMap: true,
+        },
+        files: {
+          'public/app.min.js': ['tmp/app.js']
+        }
+      }
+    },
+
     sass: {
       options: {
         includePaths: ['node_modules/bootstrap/scss'],
@@ -26,7 +51,7 @@ module.exports = function(grunt){
 
       dev: {
         options: {
-          sourceMap: true,
+          sourceMap: false,
           outputStyle: 'expanded',
         },
         files: {
@@ -36,11 +61,11 @@ module.exports = function(grunt){
 
       dist: {
         options: {
-          sourceMap: false,
+          sourceMap: true,
           outputStyle: 'compressed',
         },
         files: {
-          'public/app.css': 'assets/stylesheets/main.scss'
+          'public/app.min.css': 'assets/stylesheets/main.scss'
         }
       }
     },
@@ -54,6 +79,6 @@ module.exports = function(grunt){
 
   // register tasks
   grunt.registerTask('default', ['mochacli', 'jshint']);
-  grunt.registerTask('build:dev', ['clean', 'copy:dist', 'sass:dev']);
-  grunt.registerTask('build:prod', ['clean', 'copy:dist', 'sass:dist']);
+  grunt.registerTask('build:dev', ['clean', 'copy', 'browserify:dev', 'sass:dev']);
+  grunt.registerTask('build:prod', ['clean', 'copy', 'browserify:dist', 'uglify', 'sass:dist']);
 };

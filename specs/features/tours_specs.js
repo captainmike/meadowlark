@@ -6,7 +6,7 @@ var expect = require('chai').expect;
 var base = 'http://localhost:7500';
 
 describe('/tours/request-group-rate', () => {
-  var app = require('../../meadowlark.js');
+  var app = require('../../src/meadowlark.js');
   var server;
 
   before((done) => {

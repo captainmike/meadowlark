@@ -1,4 +1,4 @@
-var fortune = require('../../../lib/fortune.js');
+var fortune = require('../../../src/lib/fortune.js');
 var expect = require('chai').expect;
 
 describe("fortune", () => {

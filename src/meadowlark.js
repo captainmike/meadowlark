@@ -28,7 +28,7 @@ app.engine('.hbs', handlebars({
 app.set('view engine', '.hbs');
 
 app.set('port', process.env.PORT || 3000);
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/../public'));
 
 app.use((req, res, next) => {
   if (!res.locals.widget) res.locals.widget = {};

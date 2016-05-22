@@ -11,7 +11,7 @@ chai.use(dirtyChai);
 var base = 'http://localhost:7500';
 
 describe('/', () => {
-  var app = require('../../meadowlark.js');
+  var app = require('../../src/meadowlark.js');
   var server;
 
   before((done) => {

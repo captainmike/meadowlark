@@ -2,7 +2,7 @@
   "name": "meadowlark",
   "version": "1.0.0",
   "description": "Learning project from Web Development with Node and Express",
-  "main": "meadowlark.js",
+  "main": "src/meadowlark.js",
   "scripts": {
     "mocha": "mocha"
   },

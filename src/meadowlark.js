@@ -11,7 +11,7 @@ app.engine('.hbs', handlebars({
   extname: '.hbs',
   defaultLayout: 'main',
   helpers: {
-    section: (name, options) => {
+    section: function(name, options) {
       if (!this._sections) this._sections = {};
       if (!this._sections[name]) this._sections[name] = [];
 
@@ -36,34 +36,34 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
   res.render('home');
 });
 
-app.get('/tours/hood-river', function(req, res) {
+app.get('/tours/hood-river', (req, res) => {
   res.render('tours/hood-river');
 });
 
-app.get('/tours/oregon-coast', function(req, res) {
+app.get('/tours/oregon-coast', (req, res) => {
   res.render('tours/hood-river');
 });
 
-app.get('/tours/request-group-rate', function(req, res) {
+app.get('/tours/request-group-rate', (req, res) => {
   res.render('tours/request-group-rate');
 });
 
-app.get('/about', function(req, res) {
+app.get('/about', (req, res) => {
   res.render('about', { fortune: fortune.getFortune() });
 });
 
 // custom 404 page
-app.use(function(req, res) {
+app.use((req, res) => {
   res.status(404);
   res.render('404');
 });
 
 // custom 500 page
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500);
   res.render('500');
@@ -71,8 +71,8 @@ app.use(function(err, req, res, next) {
 
 
 if (!module.parent) {
-  app.listen(app.get('port'), function() {
-    console.log( 'Express started on http://localhost:' +
-                app.get('port') + '; press Ctrl-C to terminate.' );
+  app.listen(app.get('port'), () => {
+    console.log('Express started on http://localhost:' +
+                 app.get('port') + '; press Ctrl-C to terminate.');
   });
 }

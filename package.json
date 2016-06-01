@@ -4,7 +4,10 @@
   "description": "Learning project from Web Development with Node and Express",
   "main": "src/meadowlark.js",
   "scripts": {
-    "mocha": "mocha"
+    "mocha": "mocha",
+    "build:js": "babel src --out-dir es5 --source-maps",
+    "watch:js": "npm run build:js -- --watch",
+    "start": "nodemon es5/meadowlark.js"
   },
   "author": "captmike",
   "license": "ISC",
@@ -34,5 +37,10 @@
     "mocha": "^2.3.4",
     "mocha-generators": "^1.2.0",
     "nightmare": "^2.1.3"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
   }
 }

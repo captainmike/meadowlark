@@ -6,6 +6,5 @@ var fortunes = [
   "Whenever possible, keep it simple.",
 ];
 
-exports.getFortune = function() {
-  return fortunes[Math.floor(Math.random() * fortunes.length)];
-};
+exports.getFortune = () =>
+  fortunes[Math.floor(Math.random() * fortunes.length)];

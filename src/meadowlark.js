@@ -6,7 +6,7 @@ var fortune = require('./lib/fortune.js');
 var weatherService = require('./lib/weather_service.js');
 
 // set up handlebars view engine
-var handlebars = require('express-handlebars')
+var handlebars = require('express-handlebars');
 app.engine('.hbs', handlebars({
   extname: '.hbs',
   defaultLayout: 'main',

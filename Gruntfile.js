@@ -3,12 +3,6 @@ module.exports = function(grunt){
 
   // configure plugins
   grunt.initConfig({
-    jshint: {
-      options: {esversion: 6},
-      app: ['lib/**/*.js'],
-      tests: ['specs/**/*_specs.js']
-    },
-
     mochacli: {
       all: ['specs/**/*_specs.js']
     },
@@ -78,7 +72,7 @@ module.exports = function(grunt){
   });
 
   // register tasks
-  grunt.registerTask('default', ['mochacli', 'jshint']);
+  grunt.registerTask('default', ['mochacli']);
   grunt.registerTask('build:dev', ['clean', 'copy', 'browserify:dev', 'sass:dev']);
   grunt.registerTask('build:prod', ['clean', 'copy', 'browserify:dist', 'uglify', 'sass:dist']);
 };

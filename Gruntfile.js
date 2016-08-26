@@ -3,10 +3,6 @@ module.exports = function(grunt){
 
   // configure plugins
   grunt.initConfig({
-    mochacli: {
-      all: ['specs/**/*_specs.js']
-    },
-
     clean: {
       build: {
         src: ['public/']
@@ -72,7 +68,6 @@ module.exports = function(grunt){
   });
 
   // register tasks
-  grunt.registerTask('default', ['mochacli']);
   grunt.registerTask('build:dev', ['clean', 'copy', 'browserify:dev', 'sass:dev']);
   grunt.registerTask('build:prod', ['clean', 'copy', 'browserify:dist', 'uglify', 'sass:dist']);
 };

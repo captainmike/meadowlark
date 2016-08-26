@@ -4,13 +4,17 @@
   "description": "Learning project from Web Development with Node and Express",
   "main": "src/meadowlark.js",
   "scripts": {
-    "mocha": "mocha",
     "build:js": "babel src --out-dir es5 --source-maps",
     "watch:js": "npm run build:js -- --watch",
 
-    "jshint:app": "jshint src/**/*.js",
-    "jshint:test": "jshint specs/**/*.js",
+    "jshint:app": "jshint src/",
+    "jshint:test": "jshint specs/",
     "jshint": "npm run jshint:app && npm run jshint:test",
+
+    "test:features": "mocha specs/features/**/*_spec.js",
+    "test:units": "mocha specs/units/**/*_spec.js",
+    "pretest": "npm run jshint",
+    "test": "npm run test:units && npm run test:features",
 
     "start": "nodemon es5/meadowlark.js"
   },
@@ -20,7 +24,6 @@
     "bootstrap": "^4.0.0-alpha.2",
     "express": "^4.13.3",
     "express-handlebars": "^3.0.0",
-    "grunt-mocha-cli": "^2.0.0",
     "jquery": "^2.2.0"
   },
   "devDependencies": {
@@ -34,7 +37,6 @@
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-copy": "^0.8.2",
     "grunt-contrib-uglify": "^0.11.1",
-    "grunt-mocha-cli": "^2.0.0",
     "grunt-sass": "^1.1.0",
     "jshint": "^2.9.1",
     "load-grunt-tasks": "^3.4.0",

@@ -3,6 +3,6 @@ var expect = require('chai').expect;
 
 describe("fortune", () => {
   it('returns cookie', () => {
-    expect(typeof fortune.getFortune()).to.be.a('string');
+    expect(typeof fortune.getFortune()).to.be.a('string')
   });
 });
